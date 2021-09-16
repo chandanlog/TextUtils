@@ -31,19 +31,30 @@
 // }
 
 import './App.css';
-//import About from './components/About';
+// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextFrom from './components/TextFrom';
 import React, { useState } from 'react';
 
+
 function App(){
-  const [mode, setMode] = useState('light');
+const [mode, setMode] = useState('light');
+const toggleMode = ()=>{
+  if(mode==='light'){
+    setMode('dark');
+  }
+  else{
+    setMode('light');
+  }
+}
+
+
   return(
     <>
-      <Navbar title="TextUtils" mode={mode}/>
-      <div className="container my-3">
-     <TextFrom heading="Enter the text to Analysis Below"/>
-     { /*<About/>*/}
+      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} about = "text"/>
+      <div className="container">
+      <TextFrom heading="Enter the text to Analysis Below"/>
+      {/* <About/> */}
       </div>
     </>
   );
