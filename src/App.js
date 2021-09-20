@@ -42,9 +42,11 @@ const [mode, setMode] = useState('light');
 const toggleMode = ()=>{
   if(mode==='light'){
     setMode('dark');
+    document.body.style.backgroundColor ='#2f4668';
   }
   else{
     setMode('light');
+    document.body.style.backgroundColor ='white';
   }
 }
 
@@ -53,7 +55,7 @@ const toggleMode = ()=>{
     <>
       <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} about = "text"/>
       <div className="container">
-      <TextFrom heading="Enter the text to Analysis Below"/>
+      <TextFrom heading="Enter the text to Analysis Below" mode={mode}/>
       {/* <About/> */}
       </div>
     </>

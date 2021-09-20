@@ -5,13 +5,11 @@ export default function Navbar(props) {
 
  console.log(props,'props')
   return (
-
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
     <div className="container-fluid">
       <a className="navbar-brand" href="/">{props.title}</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
-        <h1>data</h1>
       </button>
 
   <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -28,11 +26,11 @@ export default function Navbar(props) {
       <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
       <button className="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form> */}
-        <div className="form-check form-switch text-light" style = {{width:"80%"}}>
+        <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}  style = {{width:"17%"}}>
       
       <input className="form-check-input" type="checkbox" style = {{float:"right"}} id="flexSwitchCheckDefault" onClick={props.toggleMode}/>
    
-      <label class="form-check-label" htmlfor="flexSwitchCheckDefault">Enable dark</label>
+      <label className="form-check-label" htmlfor="flexSwitchCheckDefault" >Enable darkMode</label>
     </div>
   </div>
   </div>
