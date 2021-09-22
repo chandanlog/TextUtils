@@ -3,23 +3,26 @@ import React,{useState} from 'react'
 
 export default function TextFrom(props){
     const handleUpClick = ()=>{
-        console.log("Upper case was clicked" + text)
+       // console.log("Upper case was clicked" + text)
         let newText = text.toUpperCase();
         setText(newText)
+        props.showAlert("Converted to uppercase!","success");
 }
 const handleLoClick = ()=>{
     console.log("Upper case was clicked" + text)
     let newText = text.toLowerCase();
     setText(newText)
+    props.showAlert("Converted to lowercase!","success");
 }
 const handleClearClick = ()=>{
     console.log("Upper case was clicked" + text)
     let newText = '';
     setText(newText)
+    props.showAlert("Text Cleared!","success");
 }
 
     const handleOnChange = (event)=>{
-        console.log("on change");
+        //console.log("on change");
         setText(event.target.value);
 
 }
@@ -28,10 +31,12 @@ const handleCopy = () =>{
     let text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(Text.value);
+    props.showAlert("Copied to Clipboard!","success");
 }
 const handleExtraSpaces = () =>{
     let newText = text.split(/[ ]+/);
     setText(newText.join( ));
+    props.showAlert("Remove Extra Space!","success");
 }
     const [text, setText] = useState('Enter text here2')
 
